@@ -1,100 +1,320 @@
-📝 Problem Statement
+# 📊 Global Literacy & Education Trends: An Analytical Study
 
-Literacy rates are a vital measure of a country’s human development, economic growth, and educational outreach. 
-In this project, we analyze adult literacy, youth literacy, illiteracy population, GDP, and years of schooling data across countries and years. 
-The aim is to uncover patterns, correlations, and disparities in education across the globe.
+## 📌 Project Overview
 
-Data Understanding 🔍
+**Global Literacy & Education Trends** is a data analytics project that explores literacy, education, illiteracy, GDP, and schooling patterns across countries and years.
 
-Load each dataset into separate Pandas DataFrames and merge datasets on common columns as follows:
+The project combines multiple datasets to identify global education trends, relationships between economic development and literacy, and disparities in educational outcomes.
 
-df_literacy → Adult & Youth Literacy Rates
+### 🎯 Objectives
 
-df_illiteracy → Illiterate Population Data
+* Analyze adult and youth literacy rates across countries.
+* Study illiteracy population trends over time.
+* Examine the relationship between GDP per capita and education.
+* Analyze average years of schooling.
+* Identify countries with significant literacy and education disparities.
+* Perform exploratory data analysis using visualizations.
+* Store and analyze the cleaned data using SQL.
+* Answer real-world analytical questions using SQL queries.
 
-df_gdp_schooling → GDP & Years of Schooling
-________________________________________
-3️⃣ Data Cleaning 🧹
+---
 
-●	Handle missing values: Drop or impute.
+## 📂 Datasets
 
-●	Remove duplicates.
+The project uses three main datasets:
 
-●	Standardize country names for merging.
+| Dataset            | Description                                   |
+| ------------------ | --------------------------------------------- |
+| `df_literacy`      | Adult and youth literacy rates                |
+| `df_illiteracy`    | Illiterate population data                    |
+| `df_gdp_schooling` | GDP per capita and average years of schooling |
 
-●	Understand the shape and structure of the data
+The datasets are merged using common identifiers such as:
 
-●	Identify any unusual values
+* Country
+* Year
 
-●	Rename column names for clarity
+---
 
-●	Filter years between 1990 - 2023 (or last year in the data collected)
+## 🛠️ Technologies Used
 
-________________________________________
-4️⃣ ⚙️Feature Engineering 
+* **Python**
+* **Pandas**
+* **NumPy**
+* **Matplotlib**
+* **Seaborn**
+* **Plotly**
+* **SQL**
+* **Jupyter Notebook / Google Colab**
 
-Creating new columns can help uncover deeper insights from the data. Below are some ideas learners can start with — but are encouraged to experiment and create as many new features which can enhance the analysis.
-________________________________________
-📊 Exploratory Data Analysis (EDA) 
-Learners should perform both univariate and bivariate analysis to understand the data distribution and relationships.
-Guidelines:
+---
 
-●	Use visualization libraries like Matplotlib, Seaborn, or Plotly for plots.
+## 🔍 Data Understanding
 
+Each dataset is loaded into a separate Pandas DataFrame:
 
-●	Univariate Analysis: Explore each variable individually (e.g., histograms, box plots, bar charts for literacy rates, GDP, etc.).
+```text
+df_literacy
+df_illiteracy
+df_gdp_schooling
+```
 
+The datasets are explored to understand:
 
-●	Bivariate Analysis: Explore relationships between variables (e.g., scatter plots of GDP vs Literacy Rate, heatmaps of correlations, line plots over time).
+* Number of rows and columns
+* Data types
+* Missing values
+* Duplicate records
+* Country and year coverage
+* Numerical statistics
+* Common columns available for merging
 
+---
 
-●	Look for trends, seasonal patterns, outliers
+## 🧹 Data Cleaning
 
+The following data-cleaning steps are performed:
 
-●	Summarize findings with insights from the plots.
+* Handled missing values using appropriate methods.
+* Removed duplicate records.
+* Standardized country names for successful merging.
+* Renamed columns for better readability.
+* Checked the shape and structure of each dataset.
+* Identified unusual or inconsistent values.
+* Converted columns to appropriate data types.
+* Filtered the data for the period **1990–2023**, or the latest available year in the dataset.
 
-________________________________________
-5️⃣ Data Storage in SQL 🗄️
+---
 
-●	Create 3 tables:
+## ⚙️ Feature Engineering
 
-○	literacy_rates 
+Additional features are created where useful to improve the analysis and generate deeper insights.
 
-○	illiteracy_population
+Possible engineered features include:
 
-○	gdp_schooling 
+* Literacy rate difference between male and female populations.
+* Literacy rate difference between adult and youth populations.
+* GDP growth rate.
+* Literacy growth rate.
+* Illiteracy percentage change.
+* Schooling-to-GDP comparisons.
+* Male–female youth literacy gap.
+* Literacy improvement over time.
 
-●	Define composite keys: (country, year) for each table.
+Additional meaningful features may be created based on the available data.
 
-________________________________________
-7️⃣ SQL Queries 🧮
+---
 
- literacy_rates
- 
-1.	Get top 5 countries with highest adult literacy in 2020.
-2.	Find countries where female youth literacy < 80%.
-3.	Average adult literacy per continent (owid region).
+# 📊 Exploratory Data Analysis (EDA)
 
-illiteracy_population
-4. Countries with illiteracy % > 20% in 2000.
+EDA is performed using **Pandas, Matplotlib, Seaborn, and Plotly**.
 
-5. Trend of illiteracy % for India (2000–2020).
-6. Top 10 countries with largest illiterate population in the last year.
+## 1. Univariate Analysis
 
-gdp_schooling
+Individual variables are analyzed using:
 
-7. Find countries with avg_years_schooling > 7 and gdp_per_capita < 5000.
+* Histograms
+* Box plots
+* Bar charts
+* Distribution plots
 
-8. Rank countries by GDP per schooling for the year 2020.
-9. Find global average schooling years per year.
- 
-Join Queries
+Variables explored include:
 
-10. List top 10 countries in 2020 with highest GDP per capita but lowest average years of schooling(less than 6).
-   
-11. Show countries where the illiterate population is high despite having more than 10 average years of schooling.
-    
-   
-12.Compare literacy rates and GDP per capita growth for a selected country over the last 20 years. (country of you choice)
+* Adult literacy rate
+* Youth literacy rate
+* Illiteracy percentage
+* Illiterate population
+* GDP per capita
+* Average years of schooling
 
-13. Show the difference between youth literacy male and female rates for countries with 
+## 2. Bivariate Analysis
+
+Relationships between variables are explored using:
+
+* Scatter plots
+* Line plots
+* Bar charts
+* Correlation heatmaps
+
+Examples:
+
+* GDP per capita vs Adult Literacy
+* GDP per capita vs Years of Schooling
+* Adult Literacy vs Youth Literacy
+* Male vs Female Youth Literacy
+* Illiteracy vs Years of Schooling
+
+## 3. Time-Series Analysis
+
+Changes over time are analyzed to identify:
+
+* Literacy trends
+* Illiteracy trends
+* GDP growth
+* Changes in years of schooling
+* Country-level education improvements
+
+## 📌 Key Insights
+
+The EDA section summarizes important findings from the visualizations, including:
+
+* Countries with high and low literacy rates.
+* Countries experiencing significant improvements in literacy.
+* Relationship between economic development and education.
+* Gender differences in literacy.
+* Countries with high schooling but persistent illiteracy.
+* Global changes in education indicators over time.
+
+---
+
+# 🗄️ Data Storage in SQL
+
+The cleaned datasets are stored in a SQL database using three tables:
+
+### 1. `literacy_rates`
+
+Contains:
+
+* Country
+* Year
+* Adult literacy rates
+* Youth literacy rates
+* Male youth literacy
+* Female youth literacy
+* Other relevant literacy indicators
+
+### 2. `illiteracy_population`
+
+Contains:
+
+* Country
+* Year
+* Illiteracy percentage
+* Illiterate population
+* Other relevant indicators
+
+### 3. `gdp_schooling`
+
+Contains:
+
+* Country
+* Year
+* GDP per capita
+* Average years of schooling
+* Other relevant economic/education indicators
+
+### 🔑 Composite Key
+
+Each table uses:
+
+```text
+(country, year)
+```
+
+as the composite key to uniquely identify country-year observations.
+
+---
+
+# 🧮 SQL Analysis
+
+The following analytical queries are performed on the database.
+
+## Literacy Rates
+
+### 1. Top 5 Countries by Adult Literacy
+
+Find the top 5 countries with the highest adult literacy rate in **2020**.
+
+### 2. Female Youth Literacy
+
+Find countries where **female youth literacy is below 80%**.
+
+### 3. Average Adult Literacy by Region
+
+Calculate the average adult literacy rate for each **OWID region/continent**.
+
+---
+
+## Illiteracy Population
+
+### 4. Countries with High Illiteracy
+
+Find countries where **illiteracy exceeds 20% in 2000**.
+
+### 5. India Illiteracy Trend
+
+Analyze the trend of illiteracy percentage in **India from 2000–2020**.
+
+### 6. Countries with the Largest Illiterate Population
+
+Find the **top 10 countries** with the largest illiterate population in the latest available year.
+
+---
+
+## GDP & Schooling
+
+### 7. GDP and Schooling Comparison
+
+Find countries where:
+
+```text
+Average Years of Schooling > 7
+AND
+GDP per Capita < 5000
+```
+
+### 8. GDP per Schooling Ranking
+
+Rank countries based on:
+
+```text
+GDP per Capita / Average Years of Schooling
+```
+
+for the year **2020**.
+
+### 9. Global Average Schooling
+
+Calculate the global average number of schooling years for each year.
+
+---
+
+# 🔗 Join Queries
+
+The three datasets are joined to perform more advanced analysis.
+
+### 10. High GDP but Low Schooling
+
+Find the top 10 countries in **2020** with:
+
+* High GDP per capita
+* Average years of schooling below 6
+
+### 11. High Schooling but High Illiteracy
+
+Identify countries where:
+
+* Average years of schooling is greater than 10
+* Illiterate population remains high
+
+This helps identify potential disparities between schooling levels and literacy outcomes.
+
+### 12. Literacy and GDP Growth
+
+For a selected country, compare:
+
+* Literacy rate growth
+* GDP per capita growth
+
+over the last 20 years.
+
+### 13. Gender Literacy Gap
+
+Calculate the difference between male and female youth literacy rates:
+
+```text
+Youth Literacy Gap =
+Male Youth Literacy Rate - Female Youth Literacy Rate
+```
+
+Identify countries with significant gender gaps in youth literacy.
